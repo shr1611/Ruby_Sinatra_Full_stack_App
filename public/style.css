@@ -1,0 +1,90 @@
+body{
+  /* font-family:helvetica; */
+  font-family: sans-serif;
+  font-size: 15px;
+  float: left;
+  width:100%;
+  margin:0;
+  text-align: center;
+
+  /* background: #eeefff; */
+}
+.page{
+  /* float: left; */
+  display: inline-block;
+  width:80%;
+  text-align: center;
+}
+.title{
+  /* text-align: center; */
+  background: #eeefff;
+    padding: 20px;
+    margin: 0
+}
+
+.cred_holder{
+  /* float: left; */
+  display: inline-block;
+  margin:20px;
+  /* width:80%; */
+  text-align: center;
+
+}
+
+.credentials > label, .total_stats label{
+  float:left;
+  padding:10px;
+  margin:10px;
+  text-align: left;
+      /* width: 65px; */
+}
+.credentials > .input, .input{
+  float:right;
+  width: 200px;
+  padding:10px;
+  margin:10px;
+  color:#efgefg;
+  background: #ffffff;
+}
+
+.credentials < parent{
+  float: left;
+}
+.credentials > labels{
+  color:blue;
+}
+.button{
+  margin-top:20px;
+  padding: 10px;
+  width: 150px;
+  /* float:right; */
+cursor: pointer;
+border:1px solid #dddddd;
+}
+
+ a{
+  float:left;
+  margin-left:20px;
+}
+
+.button:hover,.button:active,.button:visited{
+  background: #dedede;
+  box-shadow: none;
+  border:1px solid #cccccc;
+
+}
+
+.button:focus{
+  outline:1px solid #eeefff;
+}
+
+
+
+
+
+
+.total_stats{
+  float: left;
+  margin:20px;
+  padding-left:20px;
+}
