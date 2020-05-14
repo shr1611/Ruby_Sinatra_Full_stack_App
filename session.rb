@@ -41,13 +41,15 @@ DataMapper.finalize
 
 require 'sinatra'
 enable :sessions
+usernameDB = "1"
+passwordDB = "1"
 
 configure do
   # session.clear
   set :message,"session message in configure"
-  set :username , "u"
-  set :password, "p"
-
+  set :username , "u3"
+  set :password, "p3"
+  set :console_message, "console message by SHRUTI"
 end
 
 get '/' do
@@ -56,68 +58,109 @@ get '/' do
 end
 
 get '/login' do
-  session.clear
+  #=begin to be commented
+  session[:username] = usernameDB
+  session[:password] = usernameDB
+#=end
+  # session.clear #to be uncommented
+
   erb:login
 end
 
-# get '/dashboard' do
-#   erb:dashboard
-# end
+get '/dashboard' do
+  puts "inside get DASHBOARD!!!!!"
+  # betOnClick #onclick function works
+end
 
 post '/login' do
   usn = params[:username]
   pwd = params[:password]
-  if(usn == "u" && pwd == "p")
+
+#=begin to be deleted later, this is just for coding purposes
+usn = usernameDB
+pwd = passwordDB
+params[:username] = usernameDB
+params[:password] = passwordDB
+# session[:username] = usernameDB
+# session[:password] = usernameDB
+# params[:username] = session[:username]
+# params[:password] =session[:password]
+#=end
+
+  if(usn == usernameDB  && pwd == passwordDB )
     session[:credError] = ""
     erb:dashboard
-
-  else
-    session[:username] = usn
-    session[:password] = pwd
-    session[:credError] = "Wrong username/password!"
-    erb:login
+#=begin to be uncommented
+  # else
+  #   session[:username] = usn
+  #   session[:password] = pwd
+  #   session[:credError] = "Wrong username/password!"
+  #   erb:login
+  #= end
   end
 
+
 end
+
+
 
 post '/dashboard' do
-  betAmt = params[:betAmount]
-  betNum = params[:betNumber]
 
-
-  # erb:dashboard
-
-  # puts "<h4> #{betAmt},#{betNum}</h4>"
-  # puts "<h3>Posted! </h3>"
-  betOnClick #onclick function works
-end
-
-# not sure if this is required
-get '/dashboard' do
-  erb:dashboard
   betAmt = params[:betAmount].to_i # identical to name attribute of input
   betNum = params[:betNumber].to_i
+  session[:betNum] = betNum
+  session[:betAmt] = betAmt
+  # params[:betAmount] = session[:betNum]
+  # params[:betNumber] = session[:betAmt]
   roll = rand(6)+1
   if betNum == roll
-    params[:tot_win_sess] = session[:won]
-    "<h3>#{session[:won]}! </h3>"
+    # params[:tot_win_sess] = session[:won]
+    puts "WONNNNNN"
+    save_session(:won,betAmt)
+    session[:tot_win_sess] = session[:won].to_i*10
+    # "<h3>session won amount $ #{session[:won]} </h3>"
     # "The dice landed on #{roll}, you win #{10*betAmt} dollars! $$ "
   else
     save_session(:lost,betAmt)
-    params[:tot_loss_sess] = session[:lost]
-    "<h3>#{session[:lost]}! </h3>"
+    puts "LOSTTTTT"
+    # params[:tot_loss_sess] = session[:lost]
+    session[:tot_loss_sess] = session[:lost]
+    # "<h3>session lost amount: $ #{session[:lost]}  </h3>"
     # "The dice landed on #{roll}, you lost #{betAmt} dollars! :/, total loss = #{session[:lost]} "
   end
   # "<h4> #{betAmt},#{betNum}</h4>"
+  erb:dashboard
+
 end
+
+# post '/dashboard' do
+#   betAmt = params[:betAmount]
+#   betNum = params[:betNumber]
+#
+#
+#   # erb:dashboard
+#
+#   # puts "<h4> #{betAmt},#{betNum}</h4>"
+#   # puts "<h3>Posted! </h3>"
+#
+#
+#
+# end
 
 not_found do
   "<h3>Sorry, we couldn't find any page to the URL you requested!! :/ </h3>"
 end
 
+def betOnClick
+  puts "bet clicked!!!!!!!!!!!!!!!!!!!!!"
+  "<h1>betting</h1>"
+
+end
+
 # to have a count on total win and total loss, need a saparate session values. (session can be considered as a file or a pool of global hash variables)
 # session[:lost],session[:win], both saved in same method.
 # save_session(:lost,money), save_session(:won,money)
+
 
 def save_session(won_lost,money)
   total = (session[won_lost] || 0)
@@ -125,9 +168,7 @@ def save_session(won_lost,money)
   session[won_lost] = total
 end
 
-def betOnClick
-  "<h1>betting</h1>"
-end
+
 
 
 

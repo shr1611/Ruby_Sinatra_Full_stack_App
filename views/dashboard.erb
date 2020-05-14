@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <title>Dashboard page</title>
+    <script type="text/javascript">
+      console.log("<%=session[:console_message]%>")
+    </script>
   </head>
   <body class="dashboard">
     <h2 class="title">Gambling Site</h2>
@@ -12,16 +15,16 @@
         <h3>Place your bet on dice number :  1 to 6</h3>
         <div class="credentials usn">
           <label for="#bet_amt">Bet money amount: </label>
-          <input class="input" type="text" name="betAmount" id="bet_amt" value="">
+          <input class="input" type="text" name="betAmount" id="bet_amt" value="<%= session[:betAmt]%>">
 
         </div>
         <div class="credentials pwd">
 
           <label for="#bet_num">on this number: </label>
-          <input class="input" type="text" name="betNumber" id="bet_num" value="">
+          <input class="input" type="text" name="betNumber" id="bet_num" value="<%= session[:betNum]%>">
         </div>
 
-          <button class="button" id="bet_btn" type="button" name="Bet" value="Bet" onclick="betFunc()">Bet</button>
+          <button class="button" id="bet_btn" type="submit" name="Bet" value="Bet" onclick="<%betOnClick%>">Bet</button>
 
 
       </form>
@@ -30,11 +33,11 @@
         <h3>Total Statistics in current session</h3>
         <div class="">
           <label for="#tot_win_sess">Total Win: </label>
-          <input class="input session_win" type="text" id="tot_win_sess" name="tot_win_sess" value="">
+          <input class="input session_win" type="text" id="tot_win_sess" name="tot_win_sess" value="<%= session[:tot_win_sess] %>">
         </div>
         <div class="">
           <label for="#tot_loss_sess">Total Loss: </label>
-          <input class="input session_loss" type="text" id="tot_loss_sess" name="tot_loss_sess" value="">
+          <input class="input session_loss" type="text" id="tot_loss_sess" name="tot_loss_sess" value="<%= session[:tot_loss_sess] %>">
 
         </div>
         <div class="">
