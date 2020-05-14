@@ -6,7 +6,7 @@ get '/' do
 end
 
 get '/login' do
-  erb:login
+    erb:login
 end
 
 get '/dashboard' do

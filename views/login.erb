@@ -10,24 +10,28 @@
     <div class="page">
       <form class="cred_holder" action="/login" method="post">
         <h4>Enter username and password</h4>
+        <div class"error"><%= session[:credError] %></div>
         <div class="credentials usn">
           <label for="#username">Username: </label>
-          <input class="input" type="text" name="username" id="username" value="">
+          <input class="input" type="text" name="username" id="username" value="<%= session[:username] %>">
           <!-- name should be same as the params[ :"key"] key value in app.rb file-->
 
         </div>
         <div class="credentials pwd">
 
           <label for="#password">Password: </label>
-          <input class="input" type="password" name="password" id="password" value="">
+          <input class="input" type="password" name="password" id="password" value="<%= session[:password] %>">
         </div>
         <a href="./dashboard" >
           <input class="button login_btn" type="submit"  name="Login" value="Login">
          </a>
       </form>
+      <!-- <span><%= @error%></span> -->
+
+      <!-- style="color:red" -->
     </div>
 
-   
+
 
 
   </body>
