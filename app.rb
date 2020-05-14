@@ -1,5 +1,6 @@
 require 'sinatra'
 
+enable :sessions
 get '/' do
   erb:login
 end
@@ -50,7 +51,7 @@ end
 ###########################
 =begin
    Steps next:
-  - initialize the table data for username and password - read SQLIte3
+  - initialize the table data for username and password - read SQLIte3 done
   - study about the session and how to store and delete values
   - display the values from session on the session textbox
 - figure out data from database

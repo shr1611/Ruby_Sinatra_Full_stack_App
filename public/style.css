@@ -6,7 +6,6 @@ body{
   width:100%;
   margin:0;
   text-align: center;
-
   /* background: #eeefff; */
 }
 .page{
@@ -21,16 +20,13 @@ body{
     padding: 20px;
     margin: 0
 }
-
 .cred_holder{
   /* float: left; */
   display: inline-block;
   margin:20px;
   /* width:80%; */
   text-align: center;
-
 }
-
 .credentials > label, .total_stats label{
   float:left;
   padding:10px;
@@ -46,7 +42,6 @@ body{
   color:#efgefg;
   background: #ffffff;
 }
-
 .credentials < parent{
   float: left;
 }
@@ -61,28 +56,18 @@ body{
 cursor: pointer;
 border:1px solid #dddddd;
 }
-
  a{
   float:left;
   margin-left:20px;
 }
-
 .button:hover,.button:active,.button:visited{
   background: #dedede;
   box-shadow: none;
   border:1px solid #cccccc;
-
 }
-
 .button:focus{
   outline:1px solid #eeefff;
 }
-
-
-
-
-
-
 .total_stats{
   float: left;
   margin:20px;
