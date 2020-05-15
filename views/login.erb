@@ -10,7 +10,7 @@
     <div class="page">
       <form class="cred_holder" action="/login" method="post">
         <h4>Enter username and password</h4>
-        <div class"error"><%= session[:credError] %></div>
+        <div class="error"><%= session[:credError] %></div>
         <div class="credentials usn">
           <label for="#username">Username: </label>
           <input class="input" type="text" name="username" id="username" value="<%= session[:username] %>">

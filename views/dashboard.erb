@@ -12,7 +12,7 @@
     <h2 class="title">Gambling Site</h2>
     <div class="page">
       <form class="cred_holder total_stats" action="/dashboard" method="post">
-        <h3>Place your bet on dice number :  1 to 6</h3>
+        <h3>Place your bet on one of these die rolls :  [1,2,3,4,5,6]</h3>
         <div class="credentials usn">
           <label for="#bet_amt">Bet money amount: </label>
           <input class="input" type="text" name="betAmount" id="bet_amt" value="<%= session[:betAmt]%>">
@@ -20,17 +20,19 @@
         </div>
         <div class="credentials pwd">
 
-          <label for="#bet_num">on this number: </label>
+          <label for="#bet_num">Bet on this number: </label>
           <input class="input" type="text" name="betNumber" id="bet_num" value="<%= session[:betNum]%>">
         </div>
 
           <button class="button" id="bet_btn" type="submit" name="Bet" value="Bet" onclick="<%betOnClick%>">Bet</button>
-
+          <div class="win_lose_text">
+            <%=@betMessage%>
+          </div>
 
       </form>
   <!--  -->
       <div class="total_stats session_stats">
-        <h3>Total Statistics in current session</h3>
+        <h3>Total Statistics in "Current Session"</h3>
         <div class="">
           <label for="#tot_win_sess">Total Win: </label>
           <input class="input session_win" type="text" id="tot_win_sess" name="tot_win_sess" value="<%= session[:tot_win_sess] %>">
@@ -48,8 +50,8 @@
       </div>
   <!-- ??? -->
 
-      <div class="total_stats account_stats">
-        <h3>Total statistics for the Account</h3>
+      <div class="account_stats">
+        <h3>Total statistics for the "Account"</h3>
         <div class="">
           <label for="#tot_win_acc">Total Win: </label>
           <input class="input account_win" type="text" id="tot_win_acc" name="" value="">
@@ -65,10 +67,11 @@
 
         </div>
 
-        <a href="./login" >
-          <input class="button" id="logout_btn" type="button" name="Logout" value="Logout">
-         </a>
+
       </div>
+      <a class="logout_anchor" href="./login" >
+        <input class="button" id="logout_btn" type="button" name="Logout" value="Logout">
+       </a>
     </div>
 
 

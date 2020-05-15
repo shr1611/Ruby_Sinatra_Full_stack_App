@@ -1,7 +1,9 @@
+/* @color = #deb623; */
 body{
   /* font-family:helvetica; */
   font-family: sans-serif;
-  font-size: 15px;
+  font-family: cursive;
+  font-size: 14px;
   float: left;
   width:100%;
   margin:0;
@@ -12,6 +14,7 @@ body{
   /* float: left; */
   display: inline-block;
   width:80%;
+  max-width: 1064px;
   text-align: center;
 }
 .title{
@@ -24,10 +27,11 @@ body{
 .cred_holder{
   /* float: left; */
   display: inline-block;
-  margin:20px;
+  /* margin:20px; */
   /* width:80%; */
   text-align: center;
 }
+
 .credentials > label, .total_stats label{
   float:left;
   padding:10px;
@@ -53,7 +57,7 @@ body{
   margin-top:20px;
   padding: 10px;
   width: 150px;
-  /* float:right; */
+  float:left;
 cursor: pointer;
 border:1px solid #dddddd;
 }
@@ -71,6 +75,47 @@ border:1px solid #dddddd;
 }
 .total_stats{
   float: left;
-  margin:20px;
-  padding-left:20px;
+  margin-top:20px;
+  padding:20px;
+  background: #fbf5e1;
+  min-height:250px;
+  margin: 10px;
+    margin-right: 0;
+    min-width: 45%;
+    max-width:600px;
+    margin-bottom: 0;
+    width:450px;
+}
+.total_stats>div,.account_stats > div{
+  display: flow-root;
+}
+.account_stats{
+  margin: 10px;
+display: inline-flex;
+/* display: inline-block; */
+padding: 10px;
+/* width:600px; */
+/* width:900px; */
+background: #eee;
+
+}
+.logout_anchor {
+  display: inline-block;
+    text-align: center;
+    float: none;
+}
+.win_lose_text{
+  float: left;
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+    color: #deb623;
+    /* color: #a0841a; */
+    /* color: #8c8c8c; */
+    font-family: cursive;
+    font-size:20px;
+
+}
+.error{
+  color:red;
 }
