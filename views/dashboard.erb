@@ -24,7 +24,7 @@
           <input class="input" type="text" name="betNumber" id="bet_num" value="<%= session[:betNum]%>">
         </div>
 
-          <button class="button" id="bet_btn" type="submit" name="Bet" value="Bet" onclick="<%betOnClick%>">Bet</button>
+          <button class="button" id="bet_btn" type="submit" name="Bet" value="Bet" >Bet</button>
           <div class="win_lose_text">
             <%=@betMessage%>
           </div>
@@ -49,7 +49,7 @@
         </div>
       </div>
   <!-- ??? -->
-
+    <form class="logoutForm" action="./login" method="get">
       <div class="account_stats">
         <h3>Total statistics for the "Account"</h3>
         <div class="">
@@ -66,15 +66,26 @@
           <input class="input account_profit" type="text" id="tot_profit_acc" name="" value="">
 
         </div>
-
-
       </div>
-      <a class="logout_anchor" href="./login" >
-        <input class="button" id="logout_btn" type="button" name="Logout" value="Logout" onclick="<%logoutOnClick%>">
-       </a>
+
+
+
+
+      <!-- <a class="logout_anchor" href="./logout" > -->
+        <input class="button" id="logout_btn" type="submit" name="Logout" value="Logout" >
+       <!-- </a> -->
+    </form>
+
     </div>
 
+    <h4> data from DB</h4>
+  <!--<%#  <%@cred = Credential.all%> %> -->
+    <ul>
 
+      <% @cred.each do |row|%>
+      <li><%=row.username%>  <%=row.password%></li>
+      <%end%>
+    </ul>
 
 
   </body>

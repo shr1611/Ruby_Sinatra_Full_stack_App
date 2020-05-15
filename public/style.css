@@ -72,15 +72,15 @@ font-family:cursive;
 }
  a{
   float:right;
-  margin-left:20px;
+  margin:20px;
 }
 .button:hover,.button:active,.button:visited{
   background: #dedede;
   box-shadow: none;
-  border:1px solid #cccccc;
+  /* border:1px solid #cccccc; */
 }
 .button:focus{
-  outline:1px solid #eeefff;
+  /* outline:1px solid #eeefff; */
 }
 .total_stats{
   float: left;
