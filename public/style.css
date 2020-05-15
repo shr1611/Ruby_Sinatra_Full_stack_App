@@ -31,7 +31,11 @@ body{
   /* width:80%; */
   text-align: center;
 }
-
+.login_form{
+  padding:10px;
+  background: #fbf5e1;
+  margin:10px;
+}
 .credentials > label, .total_stats label{
   float:left;
   padding:10px;
@@ -54,15 +58,20 @@ body{
   color:blue;
 }
 .button{
-  margin-top:20px;
+  margin:10px;
   padding: 10px;
   width: 150px;
-  float:left;
+  /* float:right; */
 cursor: pointer;
 border:1px solid #dddddd;
+font-family:cursive;
+}
+#bet_btn{
+  float:left;
+  margin-right:0;
 }
  a{
-  float:left;
+  float:right;
   margin-left:20px;
 }
 .button:hover,.button:active,.button:visited{

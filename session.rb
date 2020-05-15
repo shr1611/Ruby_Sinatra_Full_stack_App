@@ -27,7 +27,6 @@ usernameDB = "1"
 passwordDB = "1"
 
 get '/' do
-  # session[:message] = "session message"
   redirect to('/login')
 end
 
@@ -37,7 +36,7 @@ get '/login' do
   session[:password] = usernameDB
 #=end
 
-  # session.clear #to be uncommented
+  session.clear #to be uncommented
 
   erb:login
 end
@@ -54,10 +53,10 @@ post '/login' do
   pwd = params[:password]
 
 #=begin to be deleted later, this is just for development purposes
-usn = usernameDB
-pwd = passwordDB
-params[:username] = usernameDB
-params[:password] = passwordDB
+# usn = usernameDB
+# pwd = passwordDB
+# params[:username] = usernameDB
+# params[:password] = passwordDB
 
 #=end
 
@@ -86,18 +85,17 @@ post '/dashboard' do
   session[:betAmt] = betAmt
   roll = rand(6)+1
   if betNum == roll
-    puts "WONNNNNN"
-    # params[:betMessage] = "You won this bet!"
-    @betMessage = "You WON this bet!"
+    @betMessage = "Yay!, you WON this bet!"
     save_session(:won,betAmt)
-    session[:tot_win_sess] = session[:won].to_i*10
+    # session[:tot_win_sess] = session[:won].to_i*10
   else
     save_session(:lost,betAmt)
-    puts "LOSTTTTT"
-    # params[:betMessage] = "You lost this bet!"
-    @betMessage = "You LOST this bet!"
-     session[:tot_loss_sess] = session[:lost]
+    @betMessage = "Oh!, you LOST this bet!"
+     # session[:tot_loss_sess] = session[:lost]
   end
+  session[:tot_win_sess] = session[:won].to_i*10
+  session[:tot_loss_sess] = session[:lost]
+  session[:tot_profit_sess] = session[:tot_win_sess] - session[:tot_loss_sess] 
   erb:dashboard
 
 end
@@ -110,6 +108,12 @@ def betOnClick
   puts "bet clicked!!!!!!!!!!!!!!!!!!!!!"
   "<h1>betting</h1>"
 end
+
+def logoutOnClick
+  puts "logoutOnClick!!!!!!!!!!!!!!"
+end
+
+
 
 # to have a count on total win and total loss, need a saparate session values. (session can be considered as a file or a pool of global hash variables)
 # session[:lost],session[:win], both saved in same method.

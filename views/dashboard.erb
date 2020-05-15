@@ -44,7 +44,7 @@
         </div>
         <div class="">
           <label for="#tot_profit_sess">Total Profit: </label>
-          <input class="input session_profit" type="text" id="tot_profit_sess" name="" value="">
+          <input class="input session_profit" type="text" id="tot_profit_sess" name="tot_profit_sess" value="<%=session[:tot_profit_sess]%>">
 
         </div>
       </div>
@@ -70,7 +70,7 @@
 
       </div>
       <a class="logout_anchor" href="./login" >
-        <input class="button" id="logout_btn" type="button" name="Logout" value="Logout">
+        <input class="button" id="logout_btn" type="button" name="Logout" value="Logout" onclick="<%logoutOnClick%>">
        </a>
     </div>
 
