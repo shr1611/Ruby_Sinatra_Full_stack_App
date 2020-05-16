@@ -58,71 +58,50 @@ end
 
 get '/login' do
   #=begin to be commented
-  session[:username] = usernameDB
-  session[:password] = passwordDB
+  # session[:username] = usernameDB
+  # session[:password] = passwordDB
 #=end
 
-  # @creds = Credential.all
-  # puts Credential.get(1)
+
   erb:login
 end
 
 post '/login' do
-  #=begin to be deleted later, this is just for development purposes
-  # usn = usernameDB
-  # pwd = passwordDB
-  # params[:username] = usernameDB
-  # params[:password] = passwordDB
-  #=end
-#   usn = params[:username]
-#   pwd = params[:password]
-#   # "user": "pass" and "u":"p"
-#   # usernameDB = Credential.get(usn)
-# usernameDB = "u"
-#   if usernameDB != nil
-#     # passwordDB = usernameDB.password
-#     passwordDB = "p"
-#   else
-#     passwordDB = nil
-#   end
-#   if(pwd == passwordDB )
-#       session[:login] = true
-#       erb:dashboard
-#
-#   else
-#       session[:username] = usn
-#       session[:password] = pwd
-#       session[:credMsg] = "Wrong username/password!"
-#       erb:login
+  # usn = params[:username]
+  # pwd = params[:password]
+  # if(usn == usernameDB  && pwd == passwordDB )
+  #   session[:login] = true
+  #   erb:dashboard
+  # else
+  #   puts "<<<<<<<<<<<<<<<<<<<<"
+  #   puts usn
+  #   session[:username] = usn
+  #   session[:password] = pwd
+  #   session[:credMsg] = "Wrong username/password!"
+  #   redirect to '/login'
   # end
+  redirect to '/dashboard'
+end
 
+
+get '/dashboard' do
   usn = params[:username]
   pwd = params[:password]
-  # puts usn + pwd + "<<<<<<<<<<<<<<<<<<<"
   if(usn == usernameDB  && pwd == passwordDB )
-
     session[:login] = true
+    @tot_won_acc = Credential.get(usernameDB.to_s).total_won
+    @tot_lost_acc = Credential.get(usernameDB.to_s).total_lost
+    @tot_profit_acc = Credential.get(usernameDB.to_s).total_profit
+    session[:tot_won_sess] = 0
+    session[:tot_lost_sess] = 0
+    session[:tot_profit_sess] = 0
     erb:dashboard
   else
     session[:username] = usn
     session[:password] = pwd
     session[:credMsg] = "Wrong username/password!"
-    erb:login
+    redirect to '/login'
   end
-end
-
-
-get '/dashboard' do
-  @tot_won_acc = Credential.get(usernameDB.to_s).total_won
-  @tot_lost_acc = Credential.get(usernameDB.to_s).total_lost
-  @tot_profit_acc = Credential.get(usernameDB.to_s).total_profit
-  session[:tot_won_sess] = 0
-  session[:tot_lost_sess] = 0
-  session[:tot_profit_sess] = 0
-  # @total_won_sess = 0
-  # @total_lost_sess = 0
-  # @total_profit_sess = 0
-  erb:dashboard
 end
 
 post '/dashboard' do
@@ -131,7 +110,10 @@ post '/dashboard' do
   session[:betNum] = betNum
   session[:betAmt] = betAmt
   roll = rand(6)+1
-  if betNum == roll
+  if betNum == 0 || betAmt == 0
+    @betMessage = "You have not chosen proper bet!"
+    redirect to "./dashboard"
+  elsif betNum == roll
     @betMessage = "Yay!, you WON this bet!"
     save_session(:won,betAmt)
   else
@@ -141,10 +123,6 @@ post '/dashboard' do
   session[:tot_won_sess] = session[:won].to_i*10
   session[:tot_lost_sess] = session[:lost].to_i
   session[:tot_profit_sess] = session[:tot_won_sess] - session[:tot_lost_sess]
-
-
-
-
   erb:dashboard
 end
 
@@ -163,29 +141,13 @@ not_found do
   "<h3>Sorry, we couldn't find any page to the URL you requested!! :/ </h3>"
 end
 
-# def betOnClick
-#   # puts "bet clicked"
-#   # "<h1>betting</h1>"
-# end
-
-# def logoutOnClick
-#   # session.clear
-#   puts "logoutOnClick"
-# end
-
-
-
-# to have a count on total win and total loss, need a saparate session values. (session can be considered as a file or a pool of global hash variables)
-# session[:lost],session[:win], both saved in same method.
-# save_session(:lost,money), save_session(:won,money)
-
-
 def save_session(won_lost,money)
   total = (session[won_lost] || 0)
   total = total + money
   session[won_lost] = total
 end
 
+#save account data
 def save_account(old,new)
   new = old.to_i + new.to_i
 end
