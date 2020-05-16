@@ -10,9 +10,7 @@ body{
   text-align: center;
   /* background: #eeefff; */
 }
-input{
-  border: 1px solid #ddd;
-}
+
 .page{
   /* float: left; */
   display: inline-block;
@@ -132,4 +130,7 @@ background: #eee;
 }
 .error{
   color:red;
+}
+input{
+  border: 1px solid #ddd;
 }
