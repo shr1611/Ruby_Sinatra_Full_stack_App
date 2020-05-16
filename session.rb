@@ -1,8 +1,14 @@
 require 'dm-core'
 require 'dm-migrations'
 
-DataMapper::Logger.new($stdout, :debug)
+configure :development do
+#setup sqlite database
+# DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default,"sqlite3://#{Dir.pwd}/login.db")
+end
+
+# DataMapper::Logger.new($stdout, :debug)
+# DataMapper.setup(:default,"sqlite3://#{Dir.pwd}/login.db")
 
 #creating the model
 class Credential
