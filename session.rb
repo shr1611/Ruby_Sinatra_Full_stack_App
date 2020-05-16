@@ -1,3 +1,4 @@
+require 'sinatra'
 require 'dm-core'
 require 'dm-migrations'
 
@@ -10,8 +11,7 @@ end
 configure :production do
   DataMapper.setup(
     :default,
-    ENV['DATABASE_URL']
-  )
+    ENV['DATABASE_URL'])
 end
 
 # DataMapper::Logger.new($stdout, :debug)
@@ -34,7 +34,7 @@ DataMapper.finalize
 ############################################
 #routing
 
-require 'sinatra'
+
 enable :sessions
 usernameDB = "1"
 passwordDB = "1"
