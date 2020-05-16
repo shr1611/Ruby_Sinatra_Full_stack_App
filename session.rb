@@ -63,24 +63,49 @@ post '/login' do
   usn = params[:username]
   pwd = params[:password]
   # "user": "pass" and "u":"p"
-  # usernameDB = Credential.get(usn)
-usernameDB = "u"
-  if usernameDB != nil
-    # passwordDB = usernameDB.password
-    passwordDB = "p"
-  else
-    passwordDB = nil
-  end
-  if(pwd == passwordDB )
-      session[:login] = true
-      erb:dashboard
 
-  else
-      session[:username] = usn
-      session[:password] = pwd
-      session[:credMsg] = "Wrong username/password!"
-      erb:login
+  if(Credential.get(usn) != nil)
+    usernameDB = Credential.get(usn).username
+    passwordDB = Credential.get(usn).password
+    if(pwd == passwordDB )
+      puts "usernameDB" << usernameDB.to_s
+      puts "passwordDB" << passwordDB.to_s << "$$$$$$$$$$"
+        session[:login] = true
+        erb:dashboard
+
+    else
+        session[:username] = usn
+        session[:password] = pwd
+        session[:credMsg] = "Wrong username/password!"
+        erb:login
+    end
+
   end
+
+
+
+  # usernameDB = Credential.get(usn).username
+
+# usernameDB = "u"
+  # if usernameDB != nil
+    # passwordDB = Credential.get(usn).password
+  #
+  #   # passwordDB = "p"
+  # else
+  #   passwordDB = nil
+  # end
+  # if(pwd == passwordDB )
+  #   puts "usernameDB" << usernameDB.to_s
+  #   puts "passwordDB" << passwordDB.to_s << "$$$$$$$$$$"
+  #     session[:login] = true
+  #     erb:dashboard
+  #
+  # else
+  #     session[:username] = usn
+  #     session[:password] = pwd
+  #     session[:credMsg] = "Wrong username/password!"
+  #     erb:login
+  # end
 
 
 
