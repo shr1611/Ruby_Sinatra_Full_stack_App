@@ -113,11 +113,11 @@ end
 
 
 get '/dashboard' do
-  @total_won_acc = Credential.get(usernameDB.to_s).total_won
-  @total_lost_acc = Credential.get(usernameDB.to_s).total_lost
-  @total_profit_acc = Credential.get(usernameDB.to_s).total_profit
-  session[:tot_win_sess] = 0
-  session[:tot_loss_sess] = 0
+  @tot_won_acc = Credential.get(usernameDB.to_s).total_won
+  @tot_lost_acc = Credential.get(usernameDB.to_s).total_lost
+  @tot_profit_acc = Credential.get(usernameDB.to_s).total_profit
+  session[:tot_won_sess] = 0
+  session[:tot_lost_sess] = 0
   session[:tot_profit_sess] = 0
   # @total_won_sess = 0
   # @total_lost_sess = 0
@@ -138,9 +138,9 @@ post '/dashboard' do
     save_session(:lost,betAmt)
     @betMessage = "Oh!, you LOST this bet!"
   end
-  session[:tot_win_sess] = session[:won].to_i*10
-  session[:tot_loss_sess] = session[:lost].to_i
-  session[:tot_profit_sess] = session[:tot_win_sess] - session[:tot_loss_sess]
+  session[:tot_won_sess] = session[:won].to_i*10
+  session[:tot_lost_sess] = session[:lost].to_i
+  session[:tot_profit_sess] = session[:tot_won_sess] - session[:tot_lost_sess]
 
 
 
@@ -150,8 +150,8 @@ end
 
 get '/logout' do
 # Credential.get(usernameDB.to_s).update(total_profit:5000)
-Credential.get(usernameDB.to_s).update(total_won:save_account(@total_win_acc,session[:tot_win_sess]))
-Credential.get(usernameDB.to_s).update(total_lost:save_account(@total_lost_acc,session[:tot_loss_acc]))
+Credential.get(usernameDB.to_s).update(total_won:save_account(@total_win_acc,session[:tot_won_sess]))
+Credential.get(usernameDB.to_s).update(total_lost:save_account(@total_lost_acc,session[:tot_lost_sess]))
 Credential.get(usernameDB.to_s).update(total_profit:save_account(@total_profit_acc,session[:tot_profit_sess]))
 
   session.clear
