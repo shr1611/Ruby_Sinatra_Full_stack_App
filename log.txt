@@ -1,0 +1,699 @@
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>heroku logs --tail
+2020-05-16T00:22:27.545266+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:125:in `instance_eval'
+2020-05-16T00:22:27.545267+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:125:in `initialize'
+2020-05-16T00:22:27.545267+00:00 app[web.1]: config.ru:1:in `new'
+2020-05-16T00:22:27.545267+00:00 app[web.1]: config.ru:1:in `<main>'
+2020-05-16T00:22:27.545268+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/rack/adapter/loader.rb:33:in `eval'
+2020-05-16T00:22:27.545268+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/rack/adapter/loader.rb:33:in `load'
+2020-05-16T00:22:27.545269+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/controllers/controller.rb:182:in `load_rackup_config'
+2020-05-16T00:22:27.545270+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/controllers/controller.rb:72:in `start'
+2020-05-16T00:22:27.545270+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/runner.rb:203:in `run_command'
+2020-05-16T00:22:27.545271+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/runner.rb:159:in `run!'
+2020-05-16T00:22:27.545271+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/bin/thin:6:in `<top (required)>'
+2020-05-16T00:22:27.545271+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/bin/thin:23:in `load'
+2020-05-16T00:22:27.545273+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/bin/thin:23:in `<top (required)>'
+2020-05-16T00:22:32.225500+00:00 heroku[web.1]: State changed from starting to crashed
+2020-05-16T00:22:32.139786+00:00 app[web.1]: bundler: failed to load command: thin (/app/vendor/bundle/ruby/2.6.0/bin/thin)
+2020-05-16T00:22:32.141142+00:00 app[web.1]: NoMethodError: undefined method `configure' for main:Object
+2020-05-16T00:22:32.141143+00:00 app[web.1]: /app/session.rb:4:in `<top (required)>'
+2020-05-16T00:22:32.141144+00:00 app[web.1]: config.ru:1:in `require'
+2020-05-16T00:22:32.141144+00:00 app[web.1]: config.ru:1:in `block in <main>'
+2020-05-16T00:22:32.141144+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:125:in `instance_eval'
+2020-05-16T00:22:32.141145+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:125:in `initialize'
+2020-05-16T00:22:32.141145+00:00 app[web.1]: config.ru:1:in `new'
+2020-05-16T00:22:32.141145+00:00 app[web.1]: config.ru:1:in `<main>'
+2020-05-16T00:22:32.141146+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/rack/adapter/loader.rb:33:in `eval'
+2020-05-16T00:22:32.141146+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/rack/adapter/loader.rb:33:in `load'
+2020-05-16T00:22:32.141147+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/controllers/controller.rb:182:in `load_rackup_config'
+2020-05-16T00:22:32.141147+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/controllers/controller.rb:72:in `start'
+2020-05-16T00:22:32.141147+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/runner.rb:203:in `run_command'
+2020-05-16T00:22:32.141148+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/runner.rb:159:in `run!'
+2020-05-16T00:22:32.141148+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/bin/thin:6:in `<top (required)>'
+2020-05-16T00:22:32.141148+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/bin/thin:23:in `load'
+2020-05-16T00:22:32.141149+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/bin/thin:23:in `<top (required)>'
+2020-05-16T00:22:43.804420+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=shrutisinatraapp.herokuapp.com request_id=461e701e-0b8a-4284-bb37-58508b774481 fwd="73.189.40.10" dyno= connect= service= status=503 bytes= protocol=https
+2020-05-16T00:22:44.623040+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=shrutisinatraapp.herokuapp.com request_id=b81ac7f0-faf8-4c81-9a9d-ce1bf80582f8 fwd="73.189.40.10" dyno= connect= service= status=503 bytes= protocol=https
+2020-05-16T00:27:08.716089+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=shrutisinatraapp.herokuapp.com request_id=16f410b7-dc98-476d-baf3-b7046759dcf4 fwd="73.189.40.10" dyno= connect= service= status=503 bytes= protocol=https
+2020-05-16T00:27:10.254038+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=shrutisinatraapp.herokuapp.com request_id=5f2d5341-4f31-4d4d-b23f-d82a519716da fwd="73.189.40.10" dyno= connect= service= status=503 bytes= protocol=https
+2020-05-16T00:37:17.179802+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/login" host=shrutisinatraapp.herokuapp.com request_id=e0a8a30b-bfe2-4c3a-b51a-f902072bef21 fwd="73.189.40.10" dyno= connect= service= status=503 bytes= protocol=https
+2020-05-16T00:37:18.126284+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=shrutisinatraapp.herokuapp.com request_id=3ecc61ed-5660-4767-ad1a-704ad33af7ea fwd="73.189.40.10" dyno= connect= service= status=503 bytes= protocol=https
+2020-05-16T00:37:49.000000+00:00 app[api]: Build started by user shrutijbhat@gmail.com
+2020-05-16T00:38:00.932510+00:00 app[api]: Deploy 34ff84c8 by user shrutijbhat@gmail.com
+2020-05-16T00:38:00.932510+00:00 app[api]: Release v10 created by user shrutijbhat@gmail.com
+2020-05-16T00:38:01.469278+00:00 heroku[web.1]: State changed from crashed to starting
+2020-05-16T00:38:02.000000+00:00 app[api]: Build succeeded
+2020-05-16T00:38:05.554195+00:00 heroku[web.1]: State changed from starting to crashed
+2020-05-16T00:38:05.558192+00:00 heroku[web.1]: State changed from crashed to starting
+2020-05-16T00:38:05.491352+00:00 app[web.1]: bundler: failed to load command: thin (/app/vendor/bundle/ruby/2.6.0/bin/thin)
+2020-05-16T00:38:05.491452+00:00 app[web.1]: LoadError: cannot load such file -- dm-postgres-adapter
+2020-05-16T00:38:05.491453+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:163:in `require'
+2020-05-16T00:38:05.491461+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:163:in `load_adapter'
+2020-05-16T00:38:05.491462+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:133:in `adapter_class'
+2020-05-16T00:38:05.491462+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:13:in `new'
+2020-05-16T00:38:05.491463+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core.rb:230:in `setup'
+2020-05-16T00:38:05.491463+00:00 app[web.1]: /app/session.rb:12:in `block in <top (required)>'
+2020-05-16T00:38:05.491463+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1427:in `configure'
+2020-05-16T00:38:05.491464+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1919:in `block (2 levels) in delegate'
+2020-05-16T00:38:05.491464+00:00 app[web.1]: /app/session.rb:11:in `<top (required)>'
+2020-05-16T00:38:05.491465+00:00 app[web.1]: config.ru:1:in `require'
+2020-05-16T00:38:05.491465+00:00 app[web.1]: config.ru:1:in `block in <main>'
+2020-05-16T00:38:05.491466+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:125:in `instance_eval'
+2020-05-16T00:38:05.491466+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:125:in `initialize'
+2020-05-16T00:38:05.491467+00:00 app[web.1]: config.ru:1:in `new'
+2020-05-16T00:38:05.491467+00:00 app[web.1]: config.ru:1:in `<main>'
+2020-05-16T00:38:05.491467+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/rack/adapter/loader.rb:33:in `eval'
+2020-05-16T00:38:05.491468+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/rack/adapter/loader.rb:33:in `load'
+2020-05-16T00:38:05.491468+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/controllers/controller.rb:182:in `load_rackup_config'
+2020-05-16T00:38:05.491469+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/controllers/controller.rb:72:in `start'
+2020-05-16T00:38:05.491469+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/runner.rb:203:in `run_command'
+2020-05-16T00:38:05.491469+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/runner.rb:159:in `run!'
+2020-05-16T00:38:05.491470+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/bin/thin:6:in `<top (required)>'
+2020-05-16T00:38:05.491470+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/bin/thin:23:in `load'
+2020-05-16T00:38:05.491471+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/bin/thin:23:in `<top (required)>'
+2020-05-16T00:38:10.344854+00:00 heroku[web.1]: State changed from starting to crashed
+2020-05-16T00:38:10.265781+00:00 app[web.1]: bundler: failed to load command: thin (/app/vendor/bundle/ruby/2.6.0/bin/thin)
+2020-05-16T00:38:10.265805+00:00 app[web.1]: LoadError: cannot load such file -- dm-postgres-adapter
+2020-05-16T00:38:10.265805+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:163:in `require'
+2020-05-16T00:38:10.265806+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:163:in `load_adapter'
+2020-05-16T00:38:10.265806+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:133:in `adapter_class'
+2020-05-16T00:38:10.265807+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:13:in `new'
+2020-05-16T00:38:10.265807+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core.rb:230:in `setup'
+2020-05-16T00:38:10.265808+00:00 app[web.1]: /app/session.rb:12:in `block in <top (required)>'
+2020-05-16T00:38:10.265808+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1427:in `configure'
+2020-05-16T00:38:10.265808+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1919:in `block (2 levels) in delegate'
+2020-05-16T00:38:10.265809+00:00 app[web.1]: /app/session.rb:11:in `<top (required)>'
+2020-05-16T00:38:10.265809+00:00 app[web.1]: config.ru:1:in `require'
+2020-05-16T00:38:10.265810+00:00 app[web.1]: config.ru:1:in `block in <main>'
+2020-05-16T00:38:10.265810+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:125:in `instance_eval'
+2020-05-16T00:38:10.265810+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/rack-2.2.2/lib/rack/builder.rb:125:in `initialize'
+2020-05-16T00:38:10.265811+00:00 app[web.1]: config.ru:1:in `new'
+2020-05-16T00:38:10.265811+00:00 app[web.1]: config.ru:1:in `<main>'
+2020-05-16T00:38:10.265811+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/rack/adapter/loader.rb:33:in `eval'
+2020-05-16T00:38:10.265812+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/rack/adapter/loader.rb:33:in `load'
+2020-05-16T00:38:10.265812+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/controllers/controller.rb:182:in `load_rackup_config'
+2020-05-16T00:38:10.265813+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/controllers/controller.rb:72:in `start'
+2020-05-16T00:38:10.265813+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/runner.rb:203:in `run_command'
+2020-05-16T00:38:10.265814+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/lib/thin/runner.rb:159:in `run!'
+2020-05-16T00:38:10.265814+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/gems/thin-1.7.2/bin/thin:6:in `<top (required)>'
+2020-05-16T00:38:10.265814+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/bin/thin:23:in `load'
+2020-05-16T00:38:10.265815+00:00 app[web.1]: /app/vendor/bundle/ruby/2.6.0/bin/thin:23:in `<top (required)>'
+2020-05-16T00:38:12.076464+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=shrutisinatraapp.herokuapp.com request_id=3e3811f0-d85b-4de0-a2f6-722691628fbf fwd="73.189.40.10" dyno= connect= service= status=503 bytes= protocol=https
+2020-05-16T00:38:13.290797+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=shrutisinatraapp.herokuapp.com request_id=404c3255-dc93-4a49-a3ce-62c379496ff8 fwd="73.189.40.10" dyno= connect= service= status=503 bytes= protocol=https
+^CTerminate batch job (Y/N)? y
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>bundle install
+[DEPRECATED] The source :rubygems is deprecated because HTTP requests are insecure.
+Please change your source to 'https://rubygems.org' if possible, or 'http://rubygems.org' if not.
+Fetching gem metadata from http://rubygems.org/.............
+Fetching gem metadata from http://rubygems.org/.
+Resolving dependencies...
+Using public_suffix 4.0.5
+Using addressable 2.7.0
+Using bundler 2.1.4
+Using daemons 1.3.1
+Using data_objects 0.10.17
+Using dm-core 1.2.1
+Using dm-do-adapter 1.2.0
+Using dm-migrations 1.2.0
+Fetching do_postgres 0.10.17
+Installing do_postgres 0.10.17 with native extensions
+Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+current directory:
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/do_postgres-0.10.17/ext/do_postgres
+C:/Ruby26-x64/bin/ruby.exe -I C:/Ruby26-x64/lib/ruby/2.6.0 -r
+./siteconf20200515-27980-1dpvs7k.rb extconf.rb
+checking for -lpq... no
+checking for -llibpq... no
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+        --with-opt-dir
+        --without-opt-dir
+        --with-opt-include
+        --without-opt-include=${opt-dir}/include
+        --with-opt-lib
+        --without-opt-lib=${opt-dir}/lib
+        --with-make-prog
+        --without-make-prog
+        --srcdir=.
+        --curdir
+        --ruby=C:/Ruby26-x64/bin/$(RUBY_BASE_NAME)
+        --with-pgsql-server-dir
+        --without-pgsql-server-dir
+        --with-pgsql-server-include
+        --without-pgsql-server-include=${pgsql-server-dir}/include
+        --with-pgsql-server-lib
+        --without-pgsql-server-lib=${pgsql-server-dir}/lib
+        --with-pgsql-client-dir
+        --without-pgsql-client-dir
+        --with-pgsql-client-include
+        --without-pgsql-client-include=${pgsql-client-dir}/include
+        --with-pgsql-client-lib
+        --without-pgsql-client-lib=${pgsql-client-dir}/lib
+        --with-pgsql-win32-dir
+        --without-pgsql-win32-dir
+        --with-pgsql-win32-include
+        --without-pgsql-win32-include=${pgsql-win32-dir}/include
+        --with-pgsql-win32-lib
+        --without-pgsql-win32-lib=${pgsql-win32-dir}/lib
+        --with-pqlib
+        --without-pqlib
+        --with-libpqlib
+        --without-libpqlib
+Could not find PostgreSQL build environment (libraries & headers): Makefile not
+created
+
+To see why this extension failed to compile, please check the mkmf.log which can
+be found here:
+
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/extensions/x64-mingw32/2.6.0/do_postgres-0.10.17/mkmf.log
+
+extconf failed, exit code 1
+
+Gem files will remain installed in
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/do_postgres-0.10.17 for inspection.
+Results logged to
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/extensions/x64-mingw32/2.6.0/do_postgres-0.10.17/gem_make.out
+
+An error occurred while installing do_postgres (0.10.17), and Bundler cannot
+continue.
+Make sure that `gem install do_postgres -v '0.10.17' --source
+'http://rubygems.org/'` succeeds before bundling.
+
+In Gemfile:
+  dm-postgres-adapter was resolved to 1.2.0, which depends on
+    do_postgres
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>bundle install
+[DEPRECATED] The source :rubygems is deprecated because HTTP requests are insecure.
+Please change your source to 'https://rubygems.org' if possible, or 'http://rubygems.org' if not.
+Fetching gem metadata from http://rubygems.org/.............
+Fetching gem metadata from http://rubygems.org/.
+Resolving dependencies...
+Using public_suffix 4.0.5
+Using addressable 2.7.0
+Using bundler 2.1.4
+Using daemons 1.3.1
+Using data_objects 0.10.17
+Using dm-core 1.2.1
+Using dm-do-adapter 1.2.0
+Using dm-migrations 1.2.0
+Fetching do_postgres 0.10.17
+Installing do_postgres 0.10.17 with native extensions
+Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+current directory:
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/do_postgres-0.10.17/ext/do_postgres
+C:/Ruby26-x64/bin/ruby.exe -I C:/Ruby26-x64/lib/ruby/2.6.0 -r
+./siteconf20200515-11360-1wt83m1.rb extconf.rb
+checking for -lpq... no
+checking for -llibpq... no
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+        --with-opt-dir
+        --without-opt-dir
+        --with-opt-include
+        --without-opt-include=${opt-dir}/include
+        --with-opt-lib
+        --without-opt-lib=${opt-dir}/lib
+        --with-make-prog
+        --without-make-prog
+        --srcdir=.
+        --curdir
+        --ruby=C:/Ruby26-x64/bin/$(RUBY_BASE_NAME)
+        --with-pgsql-server-dir
+        --without-pgsql-server-dir
+        --with-pgsql-server-include
+        --without-pgsql-server-include=${pgsql-server-dir}/include
+        --with-pgsql-server-lib
+        --without-pgsql-server-lib=${pgsql-server-dir}/lib
+        --with-pgsql-client-dir
+        --without-pgsql-client-dir
+        --with-pgsql-client-include
+        --without-pgsql-client-include=${pgsql-client-dir}/include
+        --with-pgsql-client-lib
+        --without-pgsql-client-lib=${pgsql-client-dir}/lib
+        --with-pgsql-win32-dir
+        --without-pgsql-win32-dir
+        --with-pgsql-win32-include
+        --without-pgsql-win32-include=${pgsql-win32-dir}/include
+        --with-pgsql-win32-lib
+        --without-pgsql-win32-lib=${pgsql-win32-dir}/lib
+        --with-pqlib
+        --without-pqlib
+        --with-libpqlib
+        --without-libpqlib
+Could not find PostgreSQL build environment (libraries & headers): Makefile not
+created
+
+To see why this extension failed to compile, please check the mkmf.log which can
+be found here:
+
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/extensions/x64-mingw32/2.6.0/do_postgres-0.10.17/mkmf.log
+
+extconf failed, exit code 1
+
+Gem files will remain installed in
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/do_postgres-0.10.17 for inspection.
+Results logged to
+C:/Ruby26-x64/lib/ruby/gems/2.6.0/extensions/x64-mingw32/2.6.0/do_postgres-0.10.17/gem_make.out
+
+An error occurred while installing do_postgres (0.10.17), and Bundler cannot
+continue.
+Make sure that `gem install do_postgres -v '0.10.17' --source
+'http://rubygems.org/'` succeeds before bundling.
+
+In Gemfile:
+  dm-postgres-adapter was resolved to 1.2.0, which depends on
+    do_postgres
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>gem install do_postgres -v
+ERROR:  While executing gem ... (OptionParser::MissingArgument)
+    missing argument: -v
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>gem install do_postgres -v '0.10.17'
+Temporarily enhancing PATH for MSYS/MINGW...
+Building native extensions. This could take a while...
+ERROR:  Error installing do_postgres:
+        ERROR: Failed to build gem native extension.
+
+    current directory: C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/do_postgres-0.10.17/ext/do_postgres
+C:/Ruby26-x64/bin/ruby.exe -I C:/Ruby26-x64/lib/ruby/2.6.0 -r ./siteconf20200515-23952-1bqdvfd.rb extconf.rb
+checking for -lpq... no
+checking for -llibpq... no
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+        --with-opt-dir
+        --without-opt-dir
+        --with-opt-include
+        --without-opt-include=${opt-dir}/include
+        --with-opt-lib
+        --without-opt-lib=${opt-dir}/lib
+        --with-make-prog
+        --without-make-prog
+        --srcdir=.
+        --curdir
+        --ruby=C:/Ruby26-x64/bin/$(RUBY_BASE_NAME)
+        --with-pgsql-server-dir
+        --without-pgsql-server-dir
+        --with-pgsql-server-include
+        --without-pgsql-server-include=${pgsql-server-dir}/include
+        --with-pgsql-server-lib
+        --without-pgsql-server-lib=${pgsql-server-dir}/lib
+        --with-pgsql-client-dir
+        --without-pgsql-client-dir
+        --with-pgsql-client-include
+        --without-pgsql-client-include=${pgsql-client-dir}/include
+        --with-pgsql-client-lib
+        --without-pgsql-client-lib=${pgsql-client-dir}/lib
+        --with-pgsql-win32-dir
+        --without-pgsql-win32-dir
+        --with-pgsql-win32-include
+        --without-pgsql-win32-include=${pgsql-win32-dir}/include
+        --with-pgsql-win32-lib
+        --without-pgsql-win32-lib=${pgsql-win32-dir}/lib
+        --with-pqlib
+        --without-pqlib
+        --with-libpqlib
+        --without-libpqlib
+Could not find PostgreSQL build environment (libraries & headers): Makefile not created
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  C:/Ruby26-x64/lib/ruby/gems/2.6.0/extensions/x64-mingw32/2.6.0/do_postgres-0.10.17/mkmf.log
+
+extconf failed, exit code 1
+
+Gem files will remain installed in C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/do_postgres-0.10.17 for inspection.
+Results logged to C:/Ruby26-x64/lib/ruby/gems/2.6.0/extensions/x64-mingw32/2.6.0/do_postgres-0.10.17/gem_make.out
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>bundle install
+[DEPRECATED] The source :rubygems is deprecated because HTTP requests are insecure.
+Please change your source to 'https://rubygems.org' if possible, or 'http://rubygems.org' if not.
+Using public_suffix 4.0.5
+Using addressable 2.7.0
+Using bundler 2.1.4
+Using daemons 1.3.1
+Using data_objects 0.10.17
+Using dm-core 1.2.1
+Using dm-do-adapter 1.2.0
+Using dm-migrations 1.2.0
+Using do_sqlite3 0.10.17
+Using dm-sqlite-adapter 1.2.0
+Using eventmachine 1.2.7 (x64-mingw32)
+Using ffi 1.12.2 (x64-mingw32)
+Using ruby2_keywords 0.0.2
+Using mustermann 1.1.1
+Using pg 1.2.3 (x64-mingw32)
+Using postgresql 1.0.0
+Using rack 2.2.2
+Using rack-protection 2.0.8.1
+Using rb-fsevent 0.10.4
+Using rb-inotify 0.10.1
+Using sass-listen 4.0.0
+Using sass 3.7.4
+Using tilt 2.0.10
+Using sinatra 2.0.8.1
+Using temple 0.8.2
+Using slim 4.1.0
+Using thin 1.7.2
+Bundle complete! 9 Gemfile dependencies, 27 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>git add .
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>git commit -m "gemfilecreated"
+[master 9bae793] gemfilecreated
+ 1 file changed, 2 insertions(+)
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>git commit -m "removedProduction"
+On branch master
+Your branch is ahead of 'origin/master' by 7 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>git push heroku master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 340 bytes | 340.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Ruby app detected
+remote: -----> Installing bundler 2.0.2
+remote: -----> Removing BUNDLED WITH version in the Gemfile.lock
+remote: -----> Compiling Ruby/Rack
+remote: -----> Using Ruby version: ruby-2.6.6
+remote:
+remote: ###### WARNING:
+remote:
+remote:        Removing `Gemfile.lock` because it was generated on Windows.
+remote:        Bundler will do a full resolve so native gems are handled properly.
+remote:        This may result in unexpected gem versions being used in your app.
+remote:        In rare occasions Bundler may not be able to resolve your dependencies at all.
+remote:        https://devcenter.heroku.com/articles/bundler-windows-gemfile
+remote:
+remote: -----> Installing dependencies using bundler 2.0.2
+remote:        Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin -j4
+remote:        Fetching gem metadata from http://rubygems.org/.............
+remote:        Fetching gem metadata from http://rubygems.org/.
+remote:        Resolving dependencies...
+remote:        Using public_suffix 4.0.5
+remote:        Using bundler 2.0.2
+remote:        Using daemons 1.3.1
+remote:        Using eventmachine 1.2.7
+remote:        Using ffi 1.12.2
+remote:        Using ruby2_keywords 0.0.2
+remote:        Using pg 1.2.3
+remote:        Using rack 2.2.2
+remote:        Using rb-fsevent 0.10.4
+remote:        Using tilt 2.0.10
+remote:        Using temple 0.8.2
+remote:        Using mustermann 1.1.1
+remote:        Using postgresql 1.0.0
+remote:        Using rack-protection 2.0.8.1
+remote:        Using rb-inotify 0.10.1
+remote:        Using thin 1.7.2
+remote:        Using addressable 2.7.0
+remote:        Using sass-listen 4.0.0
+remote:        Using sinatra 2.0.8.1
+remote:        Using slim 4.1.0
+remote:        Using dm-core 1.2.1
+remote:        Using sass 3.7.4
+remote:        Using dm-migrations 1.2.0
+remote:        Bundle complete! 9 Gemfile dependencies, 23 gems now installed.
+remote:        Gems in the groups development and test were not installed.
+remote:        Bundled gems are installed into `./vendor/bundle`
+remote:        Bundle completed (4.70s)
+remote:        Cleaning up the bundler cache.
+remote: -----> Detecting rake tasks
+remote:
+remote: ###### WARNING:
+remote:
+remote:        You have not declared a Ruby version in your Gemfile.
+remote:        To set your Ruby version add this line to your Gemfile:
+remote:        ruby '2.6.6'
+remote:        # See https://devcenter.heroku.com/articles/ruby-versions for more information.
+remote:
+remote: ###### WARNING:
+remote:
+remote:        Removing `Gemfile.lock` because it was generated on Windows.
+remote:        Bundler will do a full resolve so native gems are handled properly.
+remote:        This may result in unexpected gem versions being used in your app.
+remote:        In rare occasions Bundler may not be able to resolve your dependencies at all.
+remote:        https://devcenter.heroku.com/articles/bundler-windows-gemfile
+remote:
+remote: ###### WARNING:
+remote:
+remote:        No Procfile detected, using the default web server.
+remote:        We recommend explicitly declaring how to boot your server process via a Procfile.
+remote:        https://devcenter.heroku.com/articles/ruby-default-web-server
+remote:
+remote:
+remote: -----> Discovering process types
+remote:        Procfile declares types     -> (none)
+remote:        Default types for buildpack -> console, rake, web
+remote:
+remote: -----> Compressing...
+remote:        Done: 20.7M
+remote: -----> Launching...
+remote:        Released v11
+remote:        https://shrutisinatraapp.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/shrutisinatraapp.git
+   34ff84c..9bae793  master -> master
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>heroku open
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>heroku run console
+Running console on ⬢ shrutisinatraapp... up, run.2853 (Free)
+irb(main):001:0> require './session'
+Traceback (most recent call last):
+       14: from /app/bin/irb:30:in `<main>'
+       13: from /app/bin/irb:30:in `load'
+       12: from /app/vendor/ruby-2.6.6/lib/ruby/gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in `<top (required)>'
+       11: from (irb):1
+       10: from (irb):1:in `require'
+        9: from /app/session.rb:11:in `<top (required)>'
+        8: from /app/vendor/bundle/ruby/2.6.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1919:in `block (2 levels) in delegate'
+        7: from /app/vendor/bundle/ruby/2.6.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1427:in `configure'
+        6: from /app/session.rb:12:in `block in <top (required)>'
+        5: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core.rb:230:in `setup'
+        4: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:13:in `new'
+        3: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:133:in `adapter_class'
+        2: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:163:in `load_adapter'
+        1: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:163:in `require'
+LoadError (cannot load such file -- dm-postgres-adapter)
+irb(main):002:0> require './session'
+Traceback (most recent call last):
+       15: from /app/bin/irb:30:in `<main>'
+       14: from /app/bin/irb:30:in `load'
+       13: from /app/vendor/ruby-2.6.6/lib/ruby/gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in `<top (required)>'
+       12: from (irb):2
+       11: from (irb):2:in `rescue in irb_binding'
+       10: from (irb):2:in `require'
+        9: from /app/session.rb:11:in `<top (required)>'
+        8: from /app/vendor/bundle/ruby/2.6.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1919:in `block (2 levels) in delegate'
+        7: from /app/vendor/bundle/ruby/2.6.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1427:in `configure'
+        6: from /app/session.rb:12:in `block in <top (required)>'
+        5: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core.rb:230:in `setup'
+        4: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:13:in `new'
+        3: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:133:in `adapter_class'
+        2: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:163:in `load_adapter'
+        1: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:163:in `require'
+LoadError (cannot load such file -- dm-postgres-adapter)
+irb(main):003:0> require './session'
+Traceback (most recent call last):
+       15: from /app/bin/irb:30:in `<main>'
+       14: from /app/bin/irb:30:in `load'
+       13: from /app/vendor/ruby-2.6.6/lib/ruby/gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in `<top (required)>'
+       12: from (irb):3
+       11: from (irb):3:in `rescue in irb_binding'
+       10: from (irb):3:in `require'
+        9: from /app/session.rb:11:in `<top (required)>'
+        8: from /app/vendor/bundle/ruby/2.6.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1919:in `block (2 levels) in delegate'
+        7: from /app/vendor/bundle/ruby/2.6.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1427:in `configure'
+        6: from /app/session.rb:12:in `block in <top (required)>'
+        5: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core.rb:230:in `setup'
+        4: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:13:in `new'
+        3: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:133:in `adapter_class'
+        2: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:163:in `load_adapter'
+        1: from /app/vendor/bundle/ruby/2.6.0/gems/dm-core-1.2.1/lib/dm-core/adapters.rb:163:in `require'
+LoadError (cannot load such file -- dm-postgres-adapter)
+irb(main):004:0> Error: read ECONNRESET
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>gem install dm-postgresql
+ERROR:  Could not find a valid gem 'dm-postgresql' (>= 0) in any repository
+ERROR:  Interrupted
+Terminate batch job (Y/N)? y
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>gem install postgresql
+Successfully installed postgresql-1.0.0
+Parsing documentation for postgresql-1.0.0
+Done installing documentation for postgresql after 0 seconds
+1 gem installed
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>bundler install
+[DEPRECATED] The source :rubygems is deprecated because HTTP requests are insecure.
+Please change your source to 'https://rubygems.org' if possible, or 'http://rubygems.org' if not.
+Using public_suffix 4.0.5
+Using addressable 2.7.0
+Using bundler 2.1.4
+Using daemons 1.3.1
+Using data_objects 0.10.17
+Using dm-core 1.2.1
+Using dm-do-adapter 1.2.0
+Using dm-migrations 1.2.0
+Using do_sqlite3 0.10.17
+Using dm-sqlite-adapter 1.2.0
+Using eventmachine 1.2.7 (x64-mingw32)
+Using ffi 1.12.2 (x64-mingw32)
+Using ruby2_keywords 0.0.2
+Using mustermann 1.1.1
+Using pg 1.2.3 (x64-mingw32)
+Using rack 2.2.2
+Using rack-protection 2.0.8.1
+Using rb-fsevent 0.10.4
+Using rb-inotify 0.10.1
+Using sass-listen 4.0.0
+Using sass 3.7.4
+Using tilt 2.0.10
+Using sinatra 2.0.8.1
+Using temple 0.8.2
+Using slim 4.1.0
+Using thin 1.7.2
+Bundle complete! 8 Gemfile dependencies, 26 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>git add .
+warning: LF will be replaced by CRLF in Gemfile.lock.
+The file will have its original line endings in your working directory
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>git commit -m "modifiedGEMfile"
+[master 736f856] modifiedGEMfile
+ 3 files changed, 4 insertions(+), 16 deletions(-)
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>git push heroku master
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 512 bytes | 512.00 KiB/s, done.
+Total 5 (delta 4), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Ruby app detected
+remote: -----> Installing bundler 2.0.2
+remote: -----> Removing BUNDLED WITH version in the Gemfile.lock
+remote: -----> Compiling Ruby/Rack
+remote: -----> Using Ruby version: ruby-2.6.6
+remote:
+remote: ###### WARNING:
+remote:
+remote:        Removing `Gemfile.lock` because it was generated on Windows.
+remote:        Bundler will do a full resolve so native gems are handled properly.
+remote:        This may result in unexpected gem versions being used in your app.
+remote:        In rare occasions Bundler may not be able to resolve your dependencies at all.
+remote:        https://devcenter.heroku.com/articles/bundler-windows-gemfile
+remote:
+remote: -----> Installing dependencies using bundler 2.0.2
+remote:        Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin -j4
+remote:        Fetching gem metadata from http://rubygems.org/.............
+remote:        Fetching gem metadata from http://rubygems.org/.
+remote:        Resolving dependencies...
+remote:        Using public_suffix 4.0.5
+remote:        Using bundler 2.0.2
+remote:        Using daemons 1.3.1
+remote:        Using eventmachine 1.2.7
+remote:        Using ffi 1.12.2
+remote:        Using ruby2_keywords 0.0.2
+remote:        Using pg 1.2.3
+remote:        Using rack 2.2.2
+remote:        Using rb-fsevent 0.10.4
+remote:        Using tilt 2.0.10
+remote:        Using temple 0.8.2
+remote:        Using mustermann 1.1.1
+remote:        Using rack-protection 2.0.8.1
+remote:        Using rb-inotify 0.10.1
+remote:        Using slim 4.1.0
+remote:        Using thin 1.7.2
+remote:        Using addressable 2.7.0
+remote:        Using sass-listen 4.0.0
+remote:        Using sinatra 2.0.8.1
+remote:        Using dm-core 1.2.1
+remote:        Fetching data_objects 0.10.17
+remote:        Using sass 3.7.4
+remote:        Using dm-migrations 1.2.0
+remote:        Installing data_objects 0.10.17
+remote:        Fetching dm-do-adapter 1.2.0
+remote:        Fetching do_postgres 0.10.17
+remote:        Installing dm-do-adapter 1.2.0
+remote:        Installing do_postgres 0.10.17 with native extensions
+remote:        Fetching dm-postgres-adapter 1.2.0
+remote:        Installing dm-postgres-adapter 1.2.0
+remote:        Bundle complete! 9 Gemfile dependencies, 26 gems now installed.
+remote:        Gems in the groups development and test were not installed.
+remote:        Bundled gems are installed into `./vendor/bundle`
+remote:        Removing postgresql (1.0.0)
+remote:        Bundle completed (8.67s)
+remote:        Cleaning up the bundler cache.
+remote: -----> Detecting rake tasks
+remote:
+remote: ###### WARNING:
+remote:
+remote:        You have not declared a Ruby version in your Gemfile.
+remote:        To set your Ruby version add this line to your Gemfile:
+remote:        ruby '2.6.6'
+remote:        # See https://devcenter.heroku.com/articles/ruby-versions for more information.
+remote:
+remote: ###### WARNING:
+remote:
+remote:        Removing `Gemfile.lock` because it was generated on Windows.
+remote:        Bundler will do a full resolve so native gems are handled properly.
+remote:        This may result in unexpected gem versions being used in your app.
+remote:        In rare occasions Bundler may not be able to resolve your dependencies at all.
+remote:        https://devcenter.heroku.com/articles/bundler-windows-gemfile
+remote:
+remote: ###### WARNING:
+remote:
+remote:        No Procfile detected, using the default web server.
+remote:        We recommend explicitly declaring how to boot your server process via a Procfile.
+remote:        https://devcenter.heroku.com/articles/ruby-default-web-server
+remote:
+remote:
+remote: -----> Discovering process types
+remote:        Procfile declares types     -> (none)
+remote:        Default types for buildpack -> console, rake, web
+remote:
+remote: -----> Compressing...
+remote:        Done: 20.9M
+remote: -----> Launching...
+remote:        Released v12
+remote:        https://shrutisinatraapp.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/shrutisinatraapp.git
+   9bae793..736f856  master -> master
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>heroku open
+
+C:\Users\shrut\Documents\Her Docs\Study_Materials\SCU_materials\COEN_278\assignments\assignment_Sinatra>

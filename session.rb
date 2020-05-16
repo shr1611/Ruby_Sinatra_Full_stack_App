@@ -19,92 +19,54 @@ class Credential
   property :id, Serial
   property :username, String ,:key => true
   property :password, String ,:required => true
+  property :total_lost, Integer
+  property :total_won, Integer
+  property :total_profit, Integer
 end
 
 DataMapper.finalize
 
 
+
 ############################################
 #routing
-
 
 enable :sessions
 usernameDB = "1"
 passwordDB = "1"
-@cred = Credential.all
-get '/' do
 
+
+configure do
+end
+
+get '/' do
   redirect to('/login')
 end
 
 get '/login' do
-  # @cred = Credential.all
-
-  #=begin to be commented
-  session[:username] = usernameDB
-  session[:password] = usernameDB
-#=end
-
-  session.clear #to be uncommented
-
+  # puts Credential.get(1)
   erb:login
-end
-
-get '/dashboard' do
-
-  # if Credential.count > 0
-    # @cred = Credential.all
-  #   @cred.each do  |row|
-  #     puts row.username
-  #     puts row.password
-  #     row.total_lost = 1000
-  #     puts row.total_lost
-  #   end
-  # end
-
-  # betOnClick #onclick function works
-  erb:dashboard
 end
 
 post '/login' do
   usn = params[:username]
   pwd = params[:password]
-  puts "LOGOUT!!!!!!!!!!!!!!"
-# guess, this should be done in html page??
-  # cred = Credential.new
-  # puts Credential.all.get(:username.like => usernameDB)
-  # Credential.all.get(:username.like => usernameDB)
-  # cred.total_lost = cred.total_lost + session[:tot_loss_sess]
-  # cred.total_won = cred.total_won + session[:tot_win_sess]
-  # cred.total_profit = cred.total_profit + session[:tot_profit_sess]
-  # puts cred.total_lost+"lossssss"
-
-#=begin to be deleted later, this is just for development purposes
-# usn = usernameDB
-# pwd = passwordDB
-# params[:username] = usernameDB
-# params[:password] = passwordDB
-#=end
-
   if(usn == usernameDB  && pwd == passwordDB )
-    session[:credError] = ""
+    session[:login] = true
     erb:dashboard
-
   else
     session[:username] = usn
     session[:password] = pwd
-    session[:credError] = "Wrong username/password!"
+    session[:credMsg] = "Wrong username/password!"
     erb:login
-
   end
-
-
 end
 
-
+get '/dashboard' do
+  erb:dashboard
+end
 
 post '/dashboard' do
-
   betAmt = params[:betAmount].to_i # identical to name attribute of input
   betNum = params[:betNumber].to_i
   session[:betNum] = betNum
@@ -113,32 +75,19 @@ post '/dashboard' do
   if betNum == roll
     @betMessage = "Yay!, you WON this bet!"
     save_session(:won,betAmt)
-    # session[:tot_win_sess] = session[:won].to_i*10
   else
     save_session(:lost,betAmt)
     @betMessage = "Oh!, you LOST this bet!"
-     # session[:tot_loss_sess] = session[:lost]
   end
   session[:tot_win_sess] = session[:won].to_i*10
   session[:tot_loss_sess] = session[:lost].to_i
   session[:tot_profit_sess] = session[:tot_win_sess] - session[:tot_loss_sess]
   erb:dashboard
-
 end
 
-post '/logout' do
-
-  puts "post LOGOUT!!!!!!!!!!!!!!"
-#   cred = Credential.new
-# puts Credential.all.get(:username.like => usernameDB)
-#   Credential.all.get(:username.like => usernameDB)
-#   cred.total_lost = cred.total_lost + session[:tot_loss_sess]
-#   cred.total_won = cred.total_won + session[:tot_win_sess]
-#   cred.total_profit = cred.total_profit + session[:tot_profit_sess]
-  puts cred.total_lost+"lossssss"
-  session.clear
+get '/logout' do
+  session[:credMsg] = "You have been succesfully logged out!"
   redirect to '/login'
-
 end
 
 not_found do
