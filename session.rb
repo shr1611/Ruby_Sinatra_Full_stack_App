@@ -80,7 +80,8 @@ post '/login' do
   #   session[:credMsg] = "Wrong username/password!"
   #   redirect to '/login'
   # end
-  redirect to '/dashboard'
+  # redirect to '/dashboard'
+  erb:'/dashboard'
 end
 
 

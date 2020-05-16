@@ -10,6 +10,9 @@ body{
   text-align: center;
   /* background: #eeefff; */
 }
+input{
+  border: 1px solid #ddd;
+}
 .page{
   /* float: left; */
   display: inline-block;
@@ -64,7 +67,7 @@ body{
   /* float:right; */
 cursor: pointer;
 border:1px solid #dddddd;
-font-family:cursive;
+/* font-family:cursive; */
 }
 #bet_btn{
   float:left;
@@ -106,7 +109,9 @@ padding: 10px;
 /* width:600px; */
 /* width:900px; */
 background: #eee;
-
+}
+.account_stats input{
+  pointer-events: none;
 }
 .logout_anchor {
   display: inline-block;
@@ -121,7 +126,7 @@ background: #eee;
     color: #deb623;
     /* color: #a0841a; */
     /* color: #8c8c8c; */
-    font-family: cursive;
+    /* font-family: cursive; */
     font-size:20px;
 
 }
