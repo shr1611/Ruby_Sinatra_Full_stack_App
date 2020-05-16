@@ -26,15 +26,26 @@ class Credential
 end
 
 DataMapper.finalize
-# DataMapper.auto_upgrade!
+DataMapper.auto_migrate!
 
-# c = Credential.new
-#
-# c.username = "ruby"
-# c.password = "password"
-# c.save
+c = Credential.new
 
-# Credential.create()
+c.username = "ruby"
+c.password = "password"
+c.total_lost = 50
+c.total_won = 30
+c.total_profit = 200
+c.save
+
+c = Credential.new
+c.username = "user"
+c.password = "pass"
+c.total_lost = 10
+c.total_won = 20
+c.total_profit = 100
+c.save
+
+Credential.create()
 
 
 ############################################
