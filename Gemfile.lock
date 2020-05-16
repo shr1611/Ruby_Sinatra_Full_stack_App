@@ -23,8 +23,6 @@ GEM
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     pg (1.2.3-x64-mingw32)
-    postgresql (1.0.0)
-      pg
     public_suffix (4.0.5)
     rack (2.2.2)
     rack-protection (2.0.8.1)
@@ -61,7 +59,6 @@ DEPENDENCIES
   dm-migrations
   dm-sqlite-adapter
   pg
-  postgresql
   sass
   sinatra
   slim

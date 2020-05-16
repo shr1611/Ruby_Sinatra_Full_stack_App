@@ -9,27 +9,20 @@ DataMapper.setup(:default,"sqlite3://#{Dir.pwd}/login.db")
 end
 
 configure :production do
-  DataMapper.setup(
-    :default,
-    ENV['DATABASE_URL'])
+  DataMapper.setup(:default, ENV['DATABASE_URL'])
 end
 
-# DataMapper::Logger.new($stdout, :debug)
-# DataMapper.setup(:default,"sqlite3://#{Dir.pwd}/login.db")
 
 #creating the model
 class Credential
   include DataMapper::Resource
   property :id, Serial
-  property :username, String ,:required => true
+  property :username, String ,:key => true
   property :password, String ,:required => true
 end
 
 DataMapper.finalize
-# DataMapper.auto_migrate! #to be given  while creating a new table
-#
-# Credential.create(username:"shru",password:"password");
-# Credential.create(username:"user",password:"pass");
+
 
 ############################################
 #routing
