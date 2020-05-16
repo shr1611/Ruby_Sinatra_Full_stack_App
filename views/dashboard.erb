@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Dashboard page</title>
     <script type="text/javascript">
-      console.log("<%=session[:console_message]%>")
+      console.log("<%=@console_message%>")
     </script>
   </head>
   <body class="dashboard">
@@ -54,16 +54,16 @@
         <h3>Total statistics for the "Account"</h3>
         <div class="">
           <label for="#tot_win_acc">Total Win: </label>
-          <input class="input account_win" type="text" id="tot_win_acc" name="" value="">
+          <input class="input account_win" type="text" id="tot_win_acc" name="tot_win_acc" value="<%= @total_won %>">
         </div>
         <div class="">
           <label for="#tot_loss_acc">Total Loss: </label>
-          <input class="input account_loss" type="text" id="tot_loss_acc" name="" value="">
+          <input class="input account_loss" type="text" id="tot_loss_acc" name="tot_loss_acc" value="<%= @total_lost %>">
 
         </div>
         <div class="">
           <label for="#tot_profit_acc">Total Profit: </label>
-          <input class="input account_profit" type="text" id="tot_profit_acc" name="" value="">
+          <input class="input account_profit" type="text" id="tot_profit_acc" name="tot_profit_acc" value="<%= @total_profit %>">
 
         </div>
       </div>

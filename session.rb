@@ -18,7 +18,7 @@ class Credential
   include DataMapper::Resource
   # property :id, Serial
   #discarding the id, so that accessing the username is easier
-  property :username, String,:key => true
+  property :username, String,:unique_index=> true,:required => true,:key=> true
   property :password, String ,:required => true
   property :total_lost, Integer
   property :total_won, Integer
@@ -41,10 +41,11 @@ DataMapper.finalize
 #routing
 
 enable :sessions
-# usernameDB = params[:username]
-# passwordDB = params[:password]
 
+usernameDB = Credential.first.username
+passwordDB = Credential.first.password
 
+# puts usernameDB
 configure do
 end
 
@@ -54,67 +55,65 @@ get '/' do
 end
 
 get '/login' do
-  @creds = Credential.all
+  #=begin to be commented
+  session[:username] = usernameDB
+  session[:password] = passwordDB
+#=end
+
+  # @creds = Credential.all
   # puts Credential.get(1)
   erb:login
 end
 
 post '/login' do
+  #=begin to be deleted later, this is just for development purposes
+  # usn = usernameDB
+  # pwd = passwordDB
+  # params[:username] = usernameDB
+  # params[:password] = passwordDB
+  #=end
+#   usn = params[:username]
+#   pwd = params[:password]
+#   # "user": "pass" and "u":"p"
+#   # usernameDB = Credential.get(usn)
+# usernameDB = "u"
+#   if usernameDB != nil
+#     # passwordDB = usernameDB.password
+#     passwordDB = "p"
+#   else
+#     passwordDB = nil
+#   end
+#   if(pwd == passwordDB )
+#       session[:login] = true
+#       erb:dashboard
+#
+#   else
+#       session[:username] = usn
+#       session[:password] = pwd
+#       session[:credMsg] = "Wrong username/password!"
+#       erb:login
+  # end
+
   usn = params[:username]
   pwd = params[:password]
-  # "user": "pass" and "u":"p"
+  # puts usn + pwd + "<<<<<<<<<<<<<<<<<<<"
+  if(usn == usernameDB  && pwd == passwordDB )
 
-  if(Credential.get(usn) != nil)
-    usernameDB = Credential.get(usn).username
-    passwordDB = Credential.get(usn).password
-    if(pwd == passwordDB )
-      puts "usernameDB" << usernameDB.to_s
-      puts "passwordDB" << passwordDB.to_s << "$$$$$$$$$$"
-        session[:login] = true
-        erb:dashboard
-
-    else
-        session[:username] = usn
-        session[:password] = pwd
-        session[:credMsg] = "Wrong username/password!"
-        erb:login
-    end
-
+    session[:login] = true
+    erb:dashboard
+  else
+    session[:username] = usn
+    session[:password] = pwd
+    session[:credMsg] = "Wrong username/password!"
+    erb:login
   end
-
-
-
-  # usernameDB = Credential.get(usn).username
-
-# usernameDB = "u"
-  # if usernameDB != nil
-    # passwordDB = Credential.get(usn).password
-  #
-  #   # passwordDB = "p"
-  # else
-  #   passwordDB = nil
-  # end
-  # if(pwd == passwordDB )
-  #   puts "usernameDB" << usernameDB.to_s
-  #   puts "passwordDB" << passwordDB.to_s << "$$$$$$$$$$"
-  #     session[:login] = true
-  #     erb:dashboard
-  #
-  # else
-  #     session[:username] = usn
-  #     session[:password] = pwd
-  #     session[:credMsg] = "Wrong username/password!"
-  #     erb:login
-  # end
-
-
-
-
-
-
 end
 
+
 get '/dashboard' do
+  @total_won = Credential.get(usernameDB.to_s).total_won
+  @total_lost = Credential.get(usernameDB.to_s).total_lost
+  @total_profit = Credential.get(usernameDB.to_s).total_profit
   erb:dashboard
 end
 
@@ -138,6 +137,7 @@ post '/dashboard' do
 end
 
 get '/logout' do
+  session.clear
   session[:credMsg] = "You have been succesfully logged out!"
   redirect to '/login'
 end
