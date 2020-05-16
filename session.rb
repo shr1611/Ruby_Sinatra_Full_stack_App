@@ -26,26 +26,17 @@ class Credential
 end
 
 DataMapper.finalize
+
+=begin to be used when the table is recreated
 DataMapper.auto_migrate!
 
-c = Credential.new
-
-c.username = "ruby"
-c.password = "password"
-c.total_lost = 50
-c.total_won = 30
-c.total_profit = 200
+c = Credential.new;c.username = "ruby";c.password = "password";c.total_lost = 0;c.total_won = 0;c.total_profit = 0;
 c.save
 
-c = Credential.new
-c.username = "user"
-c.password = "pass"
-c.total_lost = 10
-c.total_won = 20
-c.total_profit = 100
+c = Credential.new;c.username = "user";c.password = "pass";c.total_lost = 0;c.total_won = 0;c.total_profit = 0;
 c.save
+=end
 
-Credential.create()
 
 
 ############################################
@@ -122,9 +113,15 @@ end
 
 
 get '/dashboard' do
-  @total_won = Credential.get(usernameDB.to_s).total_won
-  @total_lost = Credential.get(usernameDB.to_s).total_lost
-  @total_profit = Credential.get(usernameDB.to_s).total_profit
+  @total_won_acc = Credential.get(usernameDB.to_s).total_won
+  @total_lost_acc = Credential.get(usernameDB.to_s).total_lost
+  @total_profit_acc = Credential.get(usernameDB.to_s).total_profit
+  session[:tot_win_sess] = 0
+  session[:tot_loss_sess] = 0
+  session[:tot_profit_sess] = 0
+  # @total_won_sess = 0
+  # @total_lost_sess = 0
+  # @total_profit_sess = 0
   erb:dashboard
 end
 
@@ -144,10 +141,19 @@ post '/dashboard' do
   session[:tot_win_sess] = session[:won].to_i*10
   session[:tot_loss_sess] = session[:lost].to_i
   session[:tot_profit_sess] = session[:tot_win_sess] - session[:tot_loss_sess]
+
+
+
+
   erb:dashboard
 end
 
 get '/logout' do
+# Credential.get(usernameDB.to_s).update(total_profit:5000)
+Credential.get(usernameDB.to_s).update(total_won:save_account(@total_win_acc,session[:tot_win_sess]))
+Credential.get(usernameDB.to_s).update(total_lost:save_account(@total_lost_acc,session[:tot_loss_acc]))
+Credential.get(usernameDB.to_s).update(total_profit:save_account(@total_profit_acc,session[:tot_profit_sess]))
+
   session.clear
   session[:credMsg] = "You have been succesfully logged out!"
   redirect to '/login'
@@ -180,6 +186,9 @@ def save_session(won_lost,money)
   session[won_lost] = total
 end
 
+def save_account(old,new)
+  new = old.to_i + new.to_i
+end
 
 
 
