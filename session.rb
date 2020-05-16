@@ -16,8 +16,9 @@ end
 #creating the model
 class Credential
   include DataMapper::Resource
-  property :id, Serial
-  property :username, String ,:key => true
+  # property :id, Serial
+  #discarding the id, so that accessing the username is easier
+  property :username, String,:key => true
   property :password, String ,:required => true
   property :total_lost, Integer
   property :total_won, Integer
@@ -25,25 +26,35 @@ class Credential
 end
 
 DataMapper.finalize
+# DataMapper.auto_upgrade!
 
+# c = Credential.new
+#
+# c.username = "ruby"
+# c.password = "password"
+# c.save
+
+# Credential.create()
 
 
 ############################################
 #routing
 
 enable :sessions
-usernameDB = "1"
-passwordDB = "1"
+# usernameDB = params[:username]
+# passwordDB = params[:password]
 
 
 configure do
 end
 
 get '/' do
+
   redirect to('/login')
 end
 
 get '/login' do
+  @creds = Credential.all
   # puts Credential.get(1)
   erb:login
 end
@@ -51,15 +62,29 @@ end
 post '/login' do
   usn = params[:username]
   pwd = params[:password]
-  if(usn == usernameDB  && pwd == passwordDB )
-    session[:login] = true
-    erb:dashboard
+  # "user": "pass" and "u":"p"
+  usernameDB = Credential.get(usn)
+  if usernameDB != nil
+    passwordDB = usernameDB.password
   else
-    session[:username] = usn
-    session[:password] = pwd
-    session[:credMsg] = "Wrong username/password!"
-    erb:login
+    passwordDB = nil
   end
+  if(pwd == passwordDB )
+      session[:login] = true
+      erb:dashboard
+
+  else
+      session[:username] = usn
+      session[:password] = pwd
+      session[:credMsg] = "Wrong username/password!"
+      erb:login
+  end
+
+
+
+
+
+
 end
 
 get '/dashboard' do
