@@ -8,3 +8,4 @@ gem "thin"
 gem "pg"
 gem "postgresql"
 gem "dm-sqlite-adapter", :group => :development
+gem "pg", :group => :production
