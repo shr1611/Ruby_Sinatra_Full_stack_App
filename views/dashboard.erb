@@ -15,7 +15,7 @@
         <h3>Place your bet on one of these die rolls :  [1,2,3,4,5,6]</h3>
         <div class="credentials usn">
           <label for="#bet_amt">Bet money amount: </label>
-          <input class="input" type="number" name="betAmount" id="bet_amt" value="<%= session[:betAmt]%>">
+          <input class="input" type="number" min="0" name="betAmount" id="bet_amt" value="<%= session[:betAmt]%>">
 
         </div>
         <div class="credentials pwd">
@@ -35,35 +35,35 @@
         <h3>Total Statistics in "Current Session"</h3>
         <div class="">
           <label for="#tot_won_sess">Total Win: </label>
-          <input class="input session_win" type="number" id="tot_won_sess" name="tot_won_sess" value="<%= session[:tot_won_sess] %>">
+          <input class="input session_win" type="number" id="tot_won_sess" name="tot_won_sess" value="<%= session[:tot_won_sess] %>"readonly>
         </div>
         <div class="">
           <label for="#tot_lost_sess">Total Lose: </label>
-          <input class="input session_loss" type="number" id="tot_lost_sess" name="tot_lost_sess" value="<%= session[:tot_lost_sess] %>">
+          <input class="input session_loss" type="number" id="tot_lost_sess" name="tot_lost_sess" value="<%= session[:tot_lost_sess] %>" readonly>
 
         </div>
         <div class="">
-          <label for="#tot_profit_sess">Net Total Profit: </label>
-          <input class="input session_profit" type="number" id="tot_profit_sess" name="tot_profit_sess" value="<%=session[:tot_profit_sess]%>">
+          <label for="#tot_profit_sess">Total Profit: </label>
+          <input class="input session_profit" type="number" id="tot_profit_sess" name="tot_profit_sess" value="<%=session[:tot_profit_sess]%>" readonly>
 
         </div>
       </div>
   <!-- ??? -->
-    <form class="logoutForm" action="/logout" method="get">
+    <form class="logoutForm" action="/logout" method="post">
       <div class="account_stats">
         <h3>Total statistics for the "Account" (before this session) </h3>
         <div class="">
           <label for="#tot_won_acc">Total Win: </label>
-          <input class="input account_win" type="number" id="tot_won_acc" name="tot_won_acc" value="<%= @tot_won_acc %>" disabled>
+          <input class="input account_win" type="number" id="tot_won_acc" name="tot_won_acc" value="<%= session[:tot_won_acc] %>" readonly>
         </div>
         <div class="">
           <label for="#tot_lost_acc">Total Loss: </label>
-          <input class="input account_loss" type="number" id="tot_lost_acc" name="tot_lost_acc" value="<%= @tot_lost_acc %>" disabled>
+          <input class="input account_loss" type="number" id="tot_lost_acc" name="tot_lost_acc" value="<%= session[:tot_lost_acc]  %>" readonly>
 
         </div>
         <div class="">
-          <label for="#tot_profit_acc">Net Total Profit: </label>
-          <input class="input account_profit" type="number" id="tot_profit_acc" name="tot_profit_acc" value="<%= @tot_profit_acc %>" disabled>
+          <label for="#tot_profit_acc">Total Profit: </label>
+          <input class="input account_profit" type="number" id="tot_profit_acc" name="tot_profit_acc" value="<%= session[:tot_profit_acc] %>" readonly>
 
         </div>
       </div>

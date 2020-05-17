@@ -44,8 +44,9 @@ c.save
 
 enable :sessions
 
-usernameDB = Credential.first.username
-passwordDB = Credential.first.password
+
+
+
 
 # puts usernameDB
 configure do
@@ -58,68 +59,77 @@ end
 
 get '/login' do
   #=begin to be commented
-  session[:username] = usernameDB
-  session[:password] = passwordDB
+  # session[:username] = usernameDB
+  # session[:password] = passwordDB
 #=end
+
+
 
   erb:login
 end
 
 post '/login' do
+  # usn = params[:username]
+  # pwd = params[:password]
+  # if(usn == usernameDB  && pwd == passwordDB )
+  #   session[:login] = true
+  #   erb:dashboard
+  # else
+  #   puts "<<<<<<<<<<<<<<<<<<<<"
+  #   puts usn
+  #   session[:username] = usn
+  #   session[:password] = pwd
+  #   session[:credMsg] = "Wrong username/password!"
+  #   redirect to '/login'
+  # end
+
+  redirect to '/dashboard'
+end
+
+
+get '/dashboard' do
   usn = params[:username]
   pwd = params[:password]
   # usernameDB = params[:username]
   # passwordDB = params[:password]
-  # if(Credential.get(usn) == nil )
-  #   session[:credMsg] = "Please enter valid username"
-  #   redirect to './login'
-  # elsif Credential.get(usn).password != pwd
-  #   session[:credMsg] = "Incorrect Password!"
-  #   redirect to './login'
-  # else
-  #   usernameDB = Credential.get(:username.like => usn.to_s)
-  #   passwordDB = Credential.get(usn.to_s).password
-  #   puts usernameDB
-  #   puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+  if(Credential.get(usn) == nil )
+    session[:credMsg] = "Please enter valid username"
+    redirect to './login'
+  elsif Credential.get(usn).password != pwd
+    session[:credMsg] = "Incorrect Password!"
+    redirect to './login'
+  else
+    usernameDB = Credential.get(:username.like => usn.to_s)
+    passwordDB = Credential.get(usn.to_s).password
+    puts usernameDB
+    puts "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
     if(usn == usernameDB  && pwd == passwordDB )
       session[:login] = true
-      # @tot_won_acc = Credential.get(usernameDB.to_s).total_won
-      # @tot_lost_acc = Credential.get(usernameDB.to_s).total_lost
-      # @tot_profit_acc = Credential.get(usernameDB.to_s).total_profit
+      @tot_won_acc = Credential.get(usernameDB.to_s).total_won
+      @tot_lost_acc = Credential.get(usernameDB.to_s).total_lost
+      @tot_profit_acc = Credential.get(usernameDB.to_s).total_profit
       session[:tot_won_sess] = 0
       session[:tot_lost_sess] = 0
       session[:tot_profit_sess] = 0
-      redirect to '/dashboard'
+      erb:dashboard
     else
       session[:username] = usn
       session[:password] = pwd
       session[:credMsg] = "Wrong username/password!"
       redirect to '/login'
     end
-  # end
-end
-
-
-get '/dashboard' do
-  session[:tot_won_acc] = Credential.get(usernameDB.to_s).total_won.to_i
-  session[:tot_lost_acc] = Credential.get(usernameDB.to_s).total_lost.to_i
-  session[:tot_profit_acc] = Credential.get(usernameDB.to_s).total_profit.to_i
-
-  erb:dashboard
+  end
 end
 
 post '/dashboard' do
-  # @tot_won_acc = Credential.get(usernameDB.to_s).total_won
-  # @tot_lost_acc = Credential.get(usernameDB.to_s).total_lost
-  # @tot_profit_acc = Credential.get(usernameDB.to_s).total_profit
   betAmt = params[:betAmount].to_i # identical to name attribute of input
   betNum = params[:betNumber].to_i
   session[:betNum] = betNum
   session[:betAmt] = betAmt
   roll = rand(6)+1
   if betNum == 0 || betAmt == 0
-    @betMessage = "Please choose a proper bet!"
-    erb "./dashboard"
+    @betMessage = "You have not chosen proper bet!"
+    redirect to "./dashboard"
   elsif betNum == roll
     @betMessage = "Yay!, you WON this bet!"
     save_session(:won,betAmt)
@@ -134,16 +144,10 @@ post '/dashboard' do
 end
 
 get '/logout' do
-  redirect to '/login'
-end
-post '/logout' do
 # Credential.get(usernameDB.to_s).update(total_profit:5000)
-@tot_won_acc = save_account(session[:tot_won_acc],session[:tot_won_sess])
-@tot_lost_acc = save_account(session[:tot_lost_acc],session[:tot_lost_sess])
-@tot_profit_acc =  save_account(session[:tot_profit_acc], session[:tot_profit_sess])
-Credential.get(usernameDB.to_s).update(total_won: @tot_won_acc)
-Credential.get(usernameDB.to_s).update(total_lost: @tot_lost_acc)
-Credential.get(usernameDB.to_s).update(total_profit: @tot_profit_acc)
+Credential.get(usernameDB.to_s).update(total_won:save_account(@total_win_acc,session[:tot_won_sess]))
+Credential.get(usernameDB.to_s).update(total_lost:save_account(@total_lost_acc,session[:tot_lost_sess]))
+Credential.get(usernameDB.to_s).update(total_profit:save_account(@total_profit_acc,session[:tot_profit_sess]))
 
   session.clear
   session[:credMsg] = "You have been succesfully logged out!"
@@ -161,8 +165,8 @@ def save_session(won_lost,money)
 end
 
 #save account data
-def save_account(new,old)
-  return old.to_i + new.to_i
+def save_account(old,new)
+  new = old.to_i + new.to_i
 end
 
 
