@@ -42,18 +42,15 @@ c.save
 
 enable :sessions
 
-usernameDB = Credential.first.username
-passwordDB = Credential.first.password
+#global variables
+usernameDB = ""
+passwordDB = ""
 
 get '/' do
   redirect to('/login')
 end
 
 get '/login' do
-  #=begin to be commented
-  # session[:username] = usernameDB
-  # session[:password] = passwordDB
-#=end
   erb:login
 end
 
@@ -61,19 +58,25 @@ post '/login' do
   usn = params[:username]
   pwd = params[:password]
 
-    if(usn == usernameDB  && pwd == passwordDB )
-      session[:login] = true
-      session[:tot_won_sess] = 0
-      session[:tot_lost_sess] = 0
-      session[:tot_profit_sess] = 0
-      redirect to '/dashboard'
-    else
-      session[:username] = usn
-      session[:password] = pwd
-      session[:credMsg] = "Wrong username/password!"
-      redirect to '/login'
-    end
-  # end
+  if Credential.get(params[:username]) == nil
+    session[:credMsg] = "Username not found!"
+    redirect to './login'
+  else
+    usernameDB = Credential.get(params[:username]).username
+    passwordDB = Credential.get(params[:username]).password
+  end
+  if(usn == usernameDB  && pwd == passwordDB )
+    session[:login] = true
+    session[:tot_won_sess] = 0
+    session[:tot_lost_sess] = 0
+    session[:tot_profit_sess] = 0
+    redirect to '/dashboard'
+  else
+    session[:username] = usn
+    session[:password] = pwd
+    session[:credMsg] = "Wrong username/password!"
+    redirect to '/login'
+  end
 end
 
 
@@ -81,7 +84,6 @@ get '/dashboard' do
   session[:tot_won_acc] = Credential.get(usernameDB.to_s).total_won.to_i
   session[:tot_lost_acc] = Credential.get(usernameDB.to_s).total_lost.to_i
   session[:tot_profit_acc] = Credential.get(usernameDB.to_s).total_profit.to_i
-
   erb:dashboard
 end
 
