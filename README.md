@@ -9,7 +9,7 @@ Password: "password"
 
 ------
 
-3. Folder details
+3. Folder details:
 my database name is  "login.db"
 my main ruby file is "session.rb"
 
