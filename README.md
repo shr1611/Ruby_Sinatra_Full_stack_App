@@ -3,11 +3,13 @@ Submission by: Shruti Jagadeesh Bhat (W1587845)
 1. Link to the application: 
 https://shrutisinatraapp.herokuapp.com/
 
-2. Login details:
+2. Login details: (Use this to login there)
 Username: "ruby"
 Password: "password"
 
-3. Folder detials
+------
+
+3. Folder details
 my database name is  "login.db"
 my main ruby file is "session.rb"
 
@@ -20,8 +22,10 @@ CREATE TABLE "credentials" (
 "total_profit" INTEGER, 
 PRIMARY KEY("username"));
 
-Current values in the table:
-irb(main):073:0> Credential.all                                                                                                                 => [#<Credential @username="ruby" @password="password" @total_lost=99430 @total_won=5200 @total_profit=-94320>, 
+Current credentials stored in the database table: 
+
+irb(main):073:0> Credential.all                                                                                                                 
+=> [#<Credential @username="ruby" @password="password" @total_lost=99430 @total_won=5200 @total_profit=-94320>, 
 #<Credential @username="user" @password="pass" @total_lost=0 @total_won=0 @total_profit=0>]
 
 Currently the code is set to [username:"ruby", password:"password"]
